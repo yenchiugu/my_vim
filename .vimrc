@@ -73,6 +73,10 @@ nnoremap <leader>r gT
 "使用<leader>空格来取消搜索高亮
 nnoremap <leader><space> :noh<cr>
 
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 "Indent Guides设置
 let g:indent_guides_guide_size=1
 
@@ -86,9 +90,8 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'The-NERD-tree'
+Bundle 'ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
-
 Bundle 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
