@@ -12,6 +12,15 @@ set ruler
 set backspace=indent,eol,start
 "colorscheme solarized
 
+if has('mouse')
+  set mouse=a
+endif
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
 let g:solarized_termtrans  = 1
 let g:solarized_termcolors = 256
 let g:solarized_contrast   = "high"
@@ -55,7 +64,7 @@ endif
 inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
-inoremap <c-h> <left>
+"inoremap <c-h> <left>
 
 "===================================================
 ""修改leader键为逗号
@@ -90,8 +99,8 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'tpope/vim-fugitive'
 Bundle 'ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
@@ -102,11 +111,19 @@ let NERDTreeIgnore=['\.$','\~$']
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos=1
 "
-Bundle 'The-NERD-Commenter'
-let NERDShutUp=1
+"Bundle 'The-NERD-Commenter'
+"let NERDShutUp=1
 ""支持单行和多行的选择，//格式
-map <c-h> ,c<space>
+"map <c-h> ,c<space>
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'minibufexplorerpp'
 
 "放置在Bundle的设置后，防止意外BUG
 filetype plugin indent on
 syntax on
+autocmd VimEnter * NERDTree | wincmd p
+
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
