@@ -4,7 +4,7 @@ filetype off              "必须的设置：
 "Color Settings {
 set colorcolumn=85           "彩色显示第85行
 set t_Co=256                 "设置256色显示
-set background=dark          "使用color solarized
+"set background=dark          "使用color solarized
 set cursorline               "设置光标高亮显示
 set cursorcolumn             "光标垂直高亮
 set ttyfast
@@ -21,10 +21,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-let g:solarized_termtrans  = 1
-let g:solarized_termcolors = 256
-let g:solarized_contrast   = "high"
-let g:solarized_visibility = "high"
+"let g:solarized_termtrans  = 1
+"let g:solarized_termcolors = 256
+"let g:solarized_contrast   = "high"
+"let g:solarized_visibility = "high"
 "}
 "
 "tab setting {
@@ -117,6 +117,8 @@ let NERDTreeWinPos=1
 "map <c-h> ,c<space>
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'minibufexplorerpp'
+Bundle 'vhdirk/vim-cmake'
+
 
 "放置在Bundle的设置后，防止意外BUG
 filetype plugin indent on
@@ -127,3 +129,8 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
+
+"CMake releated
+:autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in runtime! indent/cmake.vim 
+:autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
+:autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
